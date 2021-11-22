@@ -1,0 +1,28 @@
+name: 'Serverless'
+
+on:
+ push:
+ workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy
+      env:
+          SERVERLESS_PLATFORM_VENDOR: tencent
+          DATA: ${{ secrets.DATA }}
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+      run: |
+          sudo chmod +x ./serverless/deploy.sh
+          bash ./serverless/deploy.sh
+
+    - name: Delete Workflow Runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.AUTH_PAT }}
+        repository: ${{ github.repository }}
+        retain_days: 1
+        keep_minimum_runs: 5

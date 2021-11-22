@@ -1,0 +1,19 @@
+# serverless.yml
+component: apigateway # (必填) 组件名称，此处为 apigateway
+name: apigwDemo # (必填) 实例名称
+app: appDemo # (可选) 该 next.js 应用名称
+stage: dev # (可选) 用于区分环境信息，默认值是 dev
+inputs:
+region: ap-guangzhou
+protocols:
+ - http
+ - https
+serviceName: serverless
+environment: release
+endpoints:
+ - path: /
+   protocol: HTTP
+   method: GET
+   apiName: index
+   function:
+     functionName: myFunction
