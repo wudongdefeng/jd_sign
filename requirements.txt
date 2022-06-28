@@ -1,0 +1,8 @@
+flask==1.0.2
+werkzeug==0.16.0
+requests==2.26.0
+uvicorn==0.18.2
+fastapi==0.78.0
+werkzeug==2.0.3
+python-multipart==0.0.5
+pycryptodome==3.14.1

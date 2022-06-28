@@ -1,19 +1,26 @@
-# serverless.yml
-component: apigateway # (必填) 组件名称，此处为 apigateway
-name: apigwDemo # (必填) 实例名称
-app: appDemo # (可选) 该 next.js 应用名称
-stage: dev # (可选) 用于区分环境信息，默认值是 dev
+#组件信息
+component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
+name: app # (必填) 创建的实例名称，请修改成您的实例名称
+
 inputs:
-region: ap-guangzhou
-protocols:
- - http
- - https
-serviceName: serverless
-environment: release
-endpoints:
- - path: /
-   protocol: HTTP
-   method: GET
-   apiName: index
-   function:
-     functionName: myFunction
+  name: jd-sign #函数名称
+  namespace: default
+  src: ./  #代码路径
+  type: web # 函数类型，默认为 event(事件类型)，web(web类型)
+  runtime: Python3.6 # 云函数运行时的环境
+  region: ap-guangzhou # 云函数所在区域
+  description: "京东算sign并返回"
+  publicAccess: true # 是否开启公网访问
+  environment: #  环境变量
+      variables: #  环境变量对象
+        TZ: Asia/Shanghai
+  events: 
+    - apigw: 
+        parameters: 
+          protocols: 
+            - http
+            - https
+          environment: release
+          endpoints: 
+            - path: /
+              method: POST
