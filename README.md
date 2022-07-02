@@ -52,7 +52,7 @@ docker-compose up -d
 ```
 ### 2. 上传正确的文件
 ```text
-将正确的 app.py 文件拉取到 /sign 目录中即可
+将正确的 sign.py 算法文件拉取到 /sign 目录中即可
 ```
 ## 腾讯云函数serverless（不推荐）
 ### 1.Fork本项目
@@ -69,11 +69,11 @@ docker-compose up -d
 - 依次添加以下内容
 - `Name`和`Value`的内容各如下：
   
-| Name | Value | 必须 |
-|:---:|:---:|:---:|
-|APP | 正确的 app.py 的代码 | 是 |
-|TENCENT_SECRET_ID | 腾讯云用户 SecretID | 是 |
-|TENCENT_SECRET_KEY | 腾讯云账户 SecretKey | 是 |
+|        Name        |      Value      | 必须  |
+|:------------------:|:---------------:|:---:|
+|        SIGN        | 正确的 sign.py 的代码 |  是  |
+| TENCENT_SECRET_ID  | 腾讯云用户 SecretID  |  是  |
+| TENCENT_SECRET_KEY | 腾讯云账户 SecretKey |  是  |
 
 ### 4.同意Actions条款
 - `fork` 完后点击您仓库上方的 `Actions` 里面

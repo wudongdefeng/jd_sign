@@ -12,11 +12,11 @@ jobs:
     - name: deploy
       env:
           SERVERLESS_PLATFORM_VENDOR: tencent
-          APP:  ${{ secrets.APP }}
+          SIGN:  ${{ secrets.SIGN }}
           TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
           TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
       run: |
-          echo "$APP" > ./app.py
+          echo "$SIGN" > ./sign.py
           sudo chmod +x ./serverless/deploy.sh
           bash ./serverless/deploy.sh
 

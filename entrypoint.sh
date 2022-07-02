@@ -10,7 +10,7 @@ start() {
     rm -rf $(ls | egrep -v "py|js") >/dev/null 2>&1
   fi
   echo "初始化完成, 启动..."
-  pm2-runtime start /app/ecosystem.config.js >/dev/null 2>&1
+  pm2-runtime start /app/ecosystem.config.js
 }
 
 start
