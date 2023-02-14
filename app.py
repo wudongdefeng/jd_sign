@@ -73,4 +73,4 @@ async def server_genToken(
 
 
 if __name__ == '__main__':
-    uvicorn.run("app:server", host='0.0.0.0', port=80, debug=True)
+    uvicorn.run("app:server", host='0.0.0.0', port=9527, debug=True)
